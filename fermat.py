@@ -28,7 +28,7 @@ def mprobability(k):
 
 
 def fermat(N,k):
-    # random.randint(0, N);
+    # random.randint(1, (N-1));
 
     # You will need to implement this function and change the return value, which should be
     # either 'prime' or 'composite'.
