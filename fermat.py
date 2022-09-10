@@ -12,14 +12,14 @@ def mod_exp(x, y, N):
     temp = y // 2;
     z = mod_exp(x, temp, N);
     if ((y % 2) == 0):
-        return (z^2) % N;
+        return (z**2) % N;
     else:
         return (x * z**2) % N;
 	
 
 def fprobability(k):
     # You will need to implement this function and change the return value.   
-    return 0.0
+    return (1 - (1/2)**k);
 
 
 def mprobability(k):
@@ -28,7 +28,15 @@ def mprobability(k):
 
 
 def fermat(N,k):
-    # random.randint(1, (N-1));
+
+    for i in range(0, k):
+        a = random.randint(1, (N - 1));
+        if (mod_exp(a, (N - 1), N) == 1):
+            continue;
+        else:
+            return 'composite';
+    return 'prime';
+
 
     # You will need to implement this function and change the return value, which should be
     # either 'prime' or 'composite'.
@@ -36,7 +44,6 @@ def fermat(N,k):
     # To generate random values for a, you will most likley want to use
     # random.randint(low,hi) which gives a random integer between low and
     #  hi, inclusive.
-	return 'prime'
 
 
 def miller_rabin(N,k):
