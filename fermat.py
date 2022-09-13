@@ -24,7 +24,7 @@ def fprobability(k):
 
 def mprobability(k):
     # You will need to implement this function and change the return value.   
-    return 0.0
+    return (1 - (1/4)**k);
 
 
 def fermat(N,k):
@@ -47,10 +47,24 @@ def fermat(N,k):
 
 
 def miller_rabin(N,k):
+
+    if (fermat(N,k) == 'composite'):
+        return 'composite';
+
+    for i in range(0, k):
+        a = random.randint(1, N - 1);
+        exp = N - 1;
+        while (exp % 2 == 0):
+            if (mod_exp(a, (exp), N) == 1):
+                exp = exp / 2;
+                continue;
+            else:
+                return 'composite';
+
+    return 'prime';
     # You will need to implement this function and change the return value, which should be
     # either 'prime' or 'composite'.
 	#
     # To generate random values for a, you will most likley want to use
     # random.randint(low,hi) which gives a random integer between low and
     #  hi, inclusive.
-	return 'composite'
