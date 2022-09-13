@@ -67,7 +67,7 @@ def miller_rabin(N,k):
         a = random.randint(1, N - 1);
         exp = N - 1;
         while (exp % 2 == 0):
-            if (mod_exp(a, (exp), N) == 1):
+            if (mod_exp(a, (exp), exp + 1) == 1):
                 exp = exp / 2;
                 continue;
             else:
